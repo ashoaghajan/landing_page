@@ -6,11 +6,13 @@ import styles from '../styles/Global';
 interface DownloadProps {
     
 }
+
+const sourceCodeUrl = 'https://github.com/ashoaghajan/landing_page';
  
 const Download: React.FC<DownloadProps> = () => {
 
     const handleOpenCode = () => {
-        window.open('https://github.com/ashoaghajan/react_native_nft', '_blank');
+        window.open(sourceCodeUrl, '_blank');
     }
 
     return ( 

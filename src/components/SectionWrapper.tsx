@@ -12,9 +12,16 @@ interface SectionWrapperProps {
     reverse?: boolean
 }
 
-const nativeAppurl = 'https://expo.dev/@ashojano/react_native_app?serviceType=classic&distribution=expo-go';
- 
+const nativeAppUrl = 'https://expo.dev/@ashojano/react_native_app?serviceType=classic&distribution=expo-go';
+
+const nativeAppCode = 'https://github.com/ashoaghajan/react_native_nft';
+
 const SectionWrapper: React.FC<SectionWrapperProps> = ({ title, description, showBtn, mockupImg, banner, reverse }) => {
+
+    const handleOpenCode = () => {
+        window.open(nativeAppCode, '_blank');
+    }
+
     return ( 
         <div className={`min-h-screen ${styles.section} ${reverse ? styles.bgWhite : styles.bgPrimary} ${banner}`}>
             <div className={`flex items-center ${reverse ? styles.boxReverseClass : 
@@ -28,7 +35,10 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({ title, description, sho
                         {description}
                     </p>
                     {showBtn && (
-                        <Button assetUrl={assets.expo} link={nativeAppurl}/>
+                        <div className={styles.flexWrap}>
+                          <Button assetUrl={assets.expo} link={nativeAppUrl}/>
+                          <button className={`${styles.btnPrimary} m-2`} onClick={handleOpenCode}>Source Code</button>
+                        </div>
                     )}
                 </div>
                 <div className={`flex-1 ${styles.flexCenter} p-8 sm:px-0`}>
